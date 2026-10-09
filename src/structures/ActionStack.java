@@ -3,19 +3,21 @@ package structures;
 import java.util.Stack;
 
 public class ActionStack {
+    private Stack<String> actions = new Stack<>();
 
-    private Stack<String> actions;
-
-    public ActionStack() {
-        actions = new Stack<>();
-    }
-
-    // Push a new action description onto the stack
     public void pushAction(String actionDescription) {
         actions.push(actionDescription);
+        System.out.println("Action added: " + actionDescription);
     }
 
-    // Display recent actions, most recent first
+    public void popAction() {
+        if (actions.isEmpty()) {
+            System.out.println("Stack is empty. Nothing to remove.");
+            return;
+        }
+        System.out.println("Removed: " + actions.pop());
+    }
+
     public void displayActions() {
         if (actions.isEmpty()) {
             System.out.println("No recent actions.");
